@@ -7,40 +7,60 @@
 // 3) class Admin extends User avec deleteUser().
 // Livrables : tp4_prototypes_class.js
 
+ 
+// TP4 — Prototypes & ES6 Class
 
-// 1) Constructeur User + méthode login() via prototype.
-function user(){
-    this.id = 0,
-    this.nom = 'Leo' 
+// Constructeur User + prototype
+function User(id = 0, nom = 'Leo') {
+    this.id = id;
+    this.nom = nom;
 }
 
-//prototype login
-user.login = function(id, nom){
-    if(this.id == id && this.nom == nom){
-        console.log("vous êtes connécté");
-    }else{
-        console.log("Nom incorrect && Mot de pass incorrect");
+User.prototype.login = function(id, nom) {
+    if (this.id === id && this.nom === nom) {
+        console.log("vous êtes connecté");
+    } else {
+        console.log("Nom incorrect && Mot de passe incorrect");
     }
 }
 
-class User{
-    constructor(nom, age){
-        this.nom = nom
-        this.age = age
+// Class User
+class UserClass {
+    constructor(id, nom, age) {
+        this.id = id;
+        this.nom = nom;
+        this.age = age;
     }
-    
-    login(){
-        if(this.id == id && this.nom == nom){
-            console.log("vous êtes connécté");
-        }else{
-            console.log("Nom incorrect && Mot de pass incorrect");
+
+    login(id, nom) {
+        if (this.id === id && this.nom === nom) {
+            console.log("vous êtes connecté");
+        } else {
+            console.log("Nom incorrect && Mot de passe incorrect");
         }
     }
 }
 
-class Admin extends User{
-    deletUser(){
-        super.nom = ''
-        super.id = ''
+// Class Admin
+class Admin extends UserClass {
+    deleteUser() {
+        this.nom = '';
+        this.id = 0;
     }
 }
+
+// Tests
+console.log(" Prototype User ");
+const u1 = new User(1, 'Leo');
+u1.login(1, 'Leo'); // connecté
+u1.login(2, 'John'); // incorrect
+
+console.log("\n Class User ");
+const u2 = new UserClass(2, 'Anna', 25);
+u2.login(2, 'Anna'); // connecté
+u2.login(3, 'Anna'); // incorrect
+
+console.log("\n Admin ");
+const admin = new Admin(99, 'Admin', 30);
+admin.deleteUser();
+console.log(admin); // nom='' id=0
