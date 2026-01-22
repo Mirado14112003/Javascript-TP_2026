@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List - TP8</title>
+    <link rel="stylesheet" href="TP8.css">
+</head>
+<body>
+    <h1>To Do List</h1>
+
+    <form>
+        <label for="item">Entrer une action</label>
+        <input id="item" type="text" placeholder="Nouvelle action">
+        <button type="submit">Ajouter la tâche</button>
+    </form>
+
+    <div class="filtres">
+        <button data-filter="all">Toutes</button>
+        <button data-filter="done">Terminées</button>
+        <button data-filter="todo">En cours</button>
+    </div>
+
+    <ul class="liste">
+        <!-- Les tâches seront ajoutées ici via JS -->
+    </ul>
+
+    <script src="TP8.js"></script>
+</body>
+</html>
